@@ -17,7 +17,7 @@ namespace AfigoControl.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("workstation id=Afigo_control.mssql.somee.com;packet size=4096;user id=compartidoDev_SQLLogin_1;pwd=47489168ny;data source=Afigo_control.mssql.somee.com;persist security info=False;initial catalog=Afigo_control");
+            optionsBuilder.UseSqlServer("Data Source=Afigo_control.mssql.somee.com;Initial Catalog=Afigo_control;User ID=compartidoDev_SQLLogin_1;Password=47489168ny; Connection Timeout=200; pooling=true;Max Pool Size=32767;MultipleActiveResultSets=True");
         }
     }
 }
