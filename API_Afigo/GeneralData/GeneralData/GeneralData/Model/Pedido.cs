@@ -54,7 +54,22 @@ public class Pedido
         DataTable dt = conexion.ExecuteReaderDataTable(cmd);
 
         return JsonConvert.SerializeObject(dt);
-    } 
+    }
+
+        public string PedidoPorTipo(string tipo_pedido)
+        {
+
+            Conexion conexion = new Conexion();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "spPedidoPorTipo";
+            cmd.Parameters.AddWithValue("@tipo_pedido", tipo_pedido);
+
+            DataTable dt = conexion.ExecuteReaderDataTable(cmd);
+
+            return JsonConvert.SerializeObject(dt);
+        }
 
         #region Crud de Pedidos
 

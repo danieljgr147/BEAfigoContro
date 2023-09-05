@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y4kB5U9DAmJ+FocLWXnxOzWtqXkV1BwtOcaE6sIseh3/95ObvkboujBXmjWiNuEgeDHtOmYQiNScW5RRoVa2lQ==",
+  "dgSpecHash": "hMORzWrp05uFBY5n+QUJAHsx65mZU9mIg01BTqmuRn0cvvpaVO9FkO4LJSqWB7En0d7Xya7AjYD8EbrtVHaynA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\minor\\OneDrive\\Escritorio\\WebSiteJ-M\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\GeneralData.csproj",
+  "projectFilePath": "C:\\Users\\minor\\OneDrive\\Escritorio\\BEAfigoContro\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\GeneralData.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\minor\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.9\\microsoft.aspnet.cors.5.2.9.nupkg.sha512",
     "C:\\Users\\minor\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",

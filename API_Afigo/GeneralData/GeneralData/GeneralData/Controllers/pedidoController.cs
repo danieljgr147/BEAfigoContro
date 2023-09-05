@@ -21,6 +21,14 @@ namespace GeneralData.Controllers
             return myPedido.AllPedidos();
         }
 
+        [HttpGet, Route("ByType")]
+        [Authorize]
+        public string PedidoPorTipo([FromBody] string tipo_pedido)
+        {
+            Pedido myPedido = new Pedido();
+            return myPedido.PedidoPorTipo(tipo_pedido);
+        }
+
         [HttpGet, Route("bySucursal")]
         [Authorize]
         public string bySucursal(string sucursal)
@@ -29,27 +37,17 @@ namespace GeneralData.Controllers
             return myPedido.OneBySucursal(sucursal); 
         }
 
-
-        [HttpGet, Route("lastPedido")]
-        [Authorize]
-        public string lastPedido(int id_usuario)
-        {
-            Pedido myPedido = new Pedido();
-            return myPedido.lastPedido(id_usuario); 
-        }
-
-
         [HttpPost, Route("create")]
         [Authorize]
         public IActionResult createPedido([FromBody] Model.Pedido pedido)
         {
-            string myIdPedido = "";
             try
             { 
                Pedido myPedido = new Pedido();
-               myIdPedido = myPedido.lastPedido(pedido.id_usuario);
-               pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
-               return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido, myIdPedido });                   
+                string myIdPedido = myPedido.lastPedido(pedido.id_usuario).Replace("[{\"id_pedido\":", "").Replace("}]", "");
+                pedido.id_pedido = int.Parse(myIdPedido);
+                pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
+               return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
             }
             catch (Exception)
             {

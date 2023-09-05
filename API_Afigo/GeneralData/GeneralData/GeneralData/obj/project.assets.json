@@ -5858,11 +5858,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\minor\\OneDrive\\Escritorio\\WebSiteJ-M\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\GeneralData.csproj",
+      "projectUniqueName": "C:\\Users\\minor\\OneDrive\\Escritorio\\BEAfigoContro\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\GeneralData.csproj",
       "projectName": "GeneralData",
-      "projectPath": "C:\\Users\\minor\\OneDrive\\Escritorio\\WebSiteJ-M\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\GeneralData.csproj",
+      "projectPath": "C:\\Users\\minor\\OneDrive\\Escritorio\\BEAfigoContro\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\GeneralData.csproj",
       "packagesPath": "C:\\Users\\minor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\minor\\OneDrive\\Escritorio\\WebSiteJ-M\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\obj\\",
+      "outputPath": "C:\\Users\\minor\\OneDrive\\Escritorio\\BEAfigoContro\\API_Afigo\\GeneralData\\GeneralData\\GeneralData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

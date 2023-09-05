@@ -48,7 +48,7 @@ namespace GeneralData.Controllers
 
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
 
-                    return Ok(new { Token = tokenString, list});
+                    return Ok(new { Token = tokenString, Usuario = list , id_Usuario = list[0].user_id });
                 }
                 else
                 {
