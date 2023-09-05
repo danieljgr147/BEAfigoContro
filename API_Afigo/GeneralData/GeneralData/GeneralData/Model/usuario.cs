@@ -11,10 +11,10 @@ namespace GeneralData.Model
         public int user_id { get; set; }
         public string direccion { get; set; }
         public string nombre { get; set; }
-
         public int usuario_admin { get; set; }
         public string nombre_de_usuario { get; set; }
         public string contrasenia { get; set; }
+        
 
         public usuario()
         {
@@ -24,6 +24,7 @@ namespace GeneralData.Model
             this.usuario_admin = 0;
             this.nombre_de_usuario = "";
             this.contrasenia = "";
+            
         }
 
         public List<Model.usuario> Login()
@@ -72,7 +73,7 @@ namespace GeneralData.Model
 
         // Crud
         #region Crud de usuarios
-        public void New(string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
+        public void New(string sucursal, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
         {
             Conexion conexion = new Conexion();
 
@@ -84,11 +85,12 @@ namespace GeneralData.Model
             comando.Parameters.AddWithValue("@usuario_admin", usuario_admin);
             comando.Parameters.AddWithValue("@nombre_de_usuario", nombre_de_usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
+            comando.Parameters.AddWithValue("@sucursal", sucursal);
 
             conexion.ExecuteNonQuery(comando);
         }
 
-        public void Update(int user_id, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
+        public void Update(string sucursal, int user_id, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
         {
             Conexion conexion = new Conexion();
 
@@ -101,6 +103,7 @@ namespace GeneralData.Model
             comando.Parameters.AddWithValue("@usuario_admin", usuario_admin);
             comando.Parameters.AddWithValue("@nombre_de_usuario", nombre_de_usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
+            
 
             conexion.ExecuteNonQuery(comando);
         }
