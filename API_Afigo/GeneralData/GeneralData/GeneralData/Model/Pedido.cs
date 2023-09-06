@@ -135,6 +135,22 @@ public class Pedido
         }
 
 
+
+        public string lastPedido(int id_usuario)
+        {
+            Conexion conexion = new Conexion();
+
+            SqlCommand comando = new SqlCommand("spUltimo_id_Pedido");
+
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_usuario", id_usuario);
+
+            DataTable dt = conexion.ExecuteReaderDataTable(comando);
+
+            return JsonConvert.SerializeObject(dt);
+        }
+
+
         #endregion
 
 

@@ -52,7 +52,7 @@ namespace GeneralData.Model {
             comando.Parameters.AddWithValue("@id_pedido", id_pedido);
             comando.Parameters.AddWithValue("@nombre_producto", nombre_producto);
             comando.Parameters.AddWithValue("@cant_producto", cant_producto);
-            comando.Parameters.AddWithValue("@decripcion", descripcion);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
             
 
             conexion.ExecuteNonQuery(comando);
