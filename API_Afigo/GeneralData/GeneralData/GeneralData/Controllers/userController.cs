@@ -38,7 +38,7 @@ namespace GeneralData.Controllers
                 {
                     return Ok(new { Respuesta = "No se pueden agregar usuarios sin contraseña o algún nombre de usuario" });
                 }
-                else
+                else 
                 {
                     if (Usuario.OneByName(Usuario.nombre_de_usuario) != "[]")//Si encuentra un usuario con el mismo nombre
                     {

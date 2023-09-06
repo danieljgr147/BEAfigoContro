@@ -73,7 +73,7 @@ namespace GeneralData.Model
 
         // Crud
         #region Crud de usuarios
-        public void New(string sucursal, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
+        public void New(string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
         {
             Conexion conexion = new Conexion();
 
@@ -85,12 +85,12 @@ namespace GeneralData.Model
             comando.Parameters.AddWithValue("@usuario_admin", usuario_admin);
             comando.Parameters.AddWithValue("@nombre_de_usuario", nombre_de_usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
-            comando.Parameters.AddWithValue("@sucursal", sucursal);
+            
 
             conexion.ExecuteNonQuery(comando);
         }
 
-        public void Update(string sucursal, int user_id, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
+        public void Update(int user_id, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
         {
             Conexion conexion = new Conexion();
 
@@ -106,7 +106,7 @@ namespace GeneralData.Model
             
 
             conexion.ExecuteNonQuery(comando);
-        }
+        } 
 
         public string One(int user_id)
         {

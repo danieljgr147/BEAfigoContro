@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 namespace GeneralData.Model { 
 	public class detallePedido
 	{
+        public int id_detalle { get; set; }
         public int id_pedido { get; set; }
         public string nombre_producto { get; set; }
         public int cant_producto { get; set; }
@@ -17,6 +18,8 @@ namespace GeneralData.Model {
 
         public detallePedido()
 		{
+
+            this.id_detalle = 0;
             this.id_pedido = 0;
             this.nombre_producto = "";
             this.cant_producto = 0;
@@ -36,7 +39,7 @@ namespace GeneralData.Model {
             DataTable dt = conexion.ExecuteReaderDataTable(comando);
 
             return JsonConvert.SerializeObject(dt);
-        }
+        } 
 
 
         public void New(int id_pedido, string nombre_producto, int cant_producto, string descripcion)

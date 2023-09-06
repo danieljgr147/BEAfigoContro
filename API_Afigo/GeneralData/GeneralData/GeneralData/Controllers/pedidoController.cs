@@ -17,15 +17,16 @@ namespace GeneralData.Controllers
         [Authorize]
         public string AllPedidos()
         {
-            Pedido myPedido = new pedido();
-            return myPedido.AllPedidos;
+            Pedido myPedido = new Pedido();
+            return myPedido.AllPedidos();
         }
 
         [HttpGet, Route("bySucursal")]
         [Authorize]
-        public string bySucursal(sucursal string)
+        public string bySucursal(string sucursal)
         {
-            return pedido.OneBySucursal(sucursal); // NO SE COMO PASAR LA SUCURSAL DESDE USUARIO
+            Pedido myPedido = new Pedido();
+            return myPedido.OneBySucursal(sucursal); // NO SE COMO PASAR LA SUCURSAL DESDE USUARIO
         }
 
 
@@ -36,7 +37,7 @@ namespace GeneralData.Controllers
         {
             try
             {
-               pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido, pedido.sucursal);
+               pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
                return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
             }
             catch (Exception)
@@ -44,7 +45,7 @@ namespace GeneralData.Controllers
                 return Ok(new { Respuesta = "Error al ejecutar el endpoint" });
             }
         }
-
+         
 
 
         [HttpPut, Route("update")]
@@ -54,7 +55,7 @@ namespace GeneralData.Controllers
             try
             {
 
-                pedido.Update(pedido.id_pedido, pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido, pedido.sucursal);
+                pedido.Update(pedido.id_pedido, pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
                 return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });
 
             }

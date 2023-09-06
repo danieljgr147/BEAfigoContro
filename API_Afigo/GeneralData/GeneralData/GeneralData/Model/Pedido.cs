@@ -54,7 +54,7 @@ public class Pedido
         DataTable dt = conexion.ExecuteReaderDataTable(cmd);
 
         return JsonConvert.SerializeObject(dt);
-    }
+    } 
 
         #region Crud de Pedidos
 
