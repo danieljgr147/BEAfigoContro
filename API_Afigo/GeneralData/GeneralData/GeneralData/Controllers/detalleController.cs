@@ -14,7 +14,7 @@ namespace GeneralData.Controllers
 
     public class detalleController : ControllerBase
     {
-        [HttpGet, Route("All")]
+        [HttpPost, Route("All")]
         [Authorize]
         public string AllDetalles([FromBody] int id_pedido)
         {

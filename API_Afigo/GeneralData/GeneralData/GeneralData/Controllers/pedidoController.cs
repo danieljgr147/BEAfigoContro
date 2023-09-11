@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Threading.Tasks;
 using System.Web.Http.Cors;
 
 namespace GeneralData.Controllers
@@ -21,13 +22,22 @@ namespace GeneralData.Controllers
             return myPedido.AllPedidos();
         }
 
-        [HttpGet, Route("ByType")]
+        [HttpGet, Route("ByTypePedido")]
         [Authorize]
-        public string PedidoPorTipo([FromBody] string tipo_pedido)
+        public string PedidoPorTipoPedido()
         {
             Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo(tipo_pedido);
+            return myPedido.PedidoPorTipo("Pedido");
         }
+
+        [HttpGet, Route("ByTypeCotizacion")]
+        [Authorize]
+        public string PedidoPorTipoCotizacion()
+        {
+            Pedido myPedido = new Pedido();
+            return myPedido.PedidoPorTipo("Cotizacion");
+        }
+
 
         [HttpGet, Route("bySucursal")]
         [Authorize]
@@ -39,15 +49,15 @@ namespace GeneralData.Controllers
 
         [HttpPost, Route("create")]
         [Authorize]
-        public IActionResult createPedido([FromBody] Model.Pedido pedido)
+        public  async Task<IActionResult> createPedido([FromBody] Model.Pedido pedido)
         {
             try
             { 
                Pedido myPedido = new Pedido();
+                pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
                 string myIdPedido = myPedido.lastPedido(pedido.id_usuario).Replace("[{\"id_pedido\":", "").Replace("}]", "");
                 pedido.id_pedido = int.Parse(myIdPedido);
-                pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
-               return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
+                return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
             }
             catch (Exception)
             {

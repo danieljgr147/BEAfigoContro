@@ -72,24 +72,15 @@ namespace GeneralData.Controllers
                 else
                 {
                     string Json = Usuario.One(Usuario.user_id).Replace("[", "").Replace("]", "");
-                    if (Json == "")
+                    if (Json != "")
                     {
                         Usuario.Update(Usuario.user_id, Usuario.nombre, Usuario.direccion, Usuario.usuario_admin, Usuario.nombre_de_usuario, Usuario.contrasenia);
                         return Ok(new { Respuesta = "Se ha actualizado con exito el usuario.", Usuario });
                     }
-                    else
-                    {
-                        dynamic data = JObject.Parse(Json);
-                        if ((string)data.nombre_de_usuario != Usuario.nombre_de_usuario)//Si encuentra un usuario con el mismo nombre, si son iguales significa que no ha cambiado el valor
-                        {
-                            return Ok(new { Respuesta = "El usuario ya existe" });
-                        }
-                        else
-                        {
-                            Usuario.Update(Usuario.user_id, Usuario.nombre, Usuario.direccion, Usuario.usuario_admin, Usuario.nombre_de_usuario, Usuario.contrasenia);
-                            return Ok(new { Respuesta = "Se ha actualizado con exito el usuario.", Usuario });
-                        }
-                    }
+                    else {
+                        return Ok(new { Respuesta = "Error al ejecutar el endpoint" });
+
+                    } 
                 }
 
             }
