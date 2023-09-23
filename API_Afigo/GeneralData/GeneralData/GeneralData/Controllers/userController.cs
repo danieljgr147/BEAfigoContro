@@ -46,7 +46,7 @@ namespace GeneralData.Controllers
                     }
                     else
                     {
-                        Usuario.New(Usuario.nombre, Usuario.direccion, Usuario.usuario_admin, Usuario.nombre_de_usuario, Usuario.contrasenia);
+                        Usuario.New(Usuario.nombre, Usuario.direccion, Usuario.usuario_admin, Usuario.nombre_de_usuario, Usuario.contrasenia, Usuario.sucursal);
                         return Ok(new { Respuesta = "Se ha creado con exito el usuario.", Usuario });
                     }
                 }
@@ -74,7 +74,7 @@ namespace GeneralData.Controllers
                     string Json = Usuario.One(Usuario.user_id).Replace("[", "").Replace("]", "");
                     if (Json != "")
                     {
-                        Usuario.Update(Usuario.user_id, Usuario.nombre, Usuario.direccion, Usuario.usuario_admin, Usuario.nombre_de_usuario, Usuario.contrasenia);
+                        Usuario.Update(Usuario.user_id, Usuario.nombre, Usuario.direccion, Usuario.usuario_admin, Usuario.nombre_de_usuario, Usuario.contrasenia, Usuario.sucursal);
                         return Ok(new { Respuesta = "Se ha actualizado con exito el usuario.", Usuario });
                     }
                     else {

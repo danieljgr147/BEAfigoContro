@@ -14,7 +14,7 @@ namespace GeneralData.Model
         public int usuario_admin { get; set; }
         public string nombre_de_usuario { get; set; }
         public string contrasenia { get; set; }
-        
+        public string sucursal { get; set; }
 
         public usuario()
         {
@@ -24,7 +24,8 @@ namespace GeneralData.Model
             this.usuario_admin = 0;
             this.nombre_de_usuario = "";
             this.contrasenia = "";
-            
+            this.sucursal = "";
+
         }
 
         public List<Model.usuario> Login()
@@ -50,6 +51,7 @@ namespace GeneralData.Model
                 p.nombre = row["nombre"].ToString();
                 p.usuario_admin = Convert.ToInt32(row["usuario_admin"]);
                 p.nombre_de_usuario = row["nombre_de_usuario"].ToString();
+                p.sucursal = row["sucursal"].ToString();
 
 
                 list.Add(p);
@@ -73,7 +75,7 @@ namespace GeneralData.Model
 
         // Crud
         #region Crud de usuarios
-        public void New(string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
+        public void New(string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia,string sucursal)
         {
             Conexion conexion = new Conexion();
 
@@ -85,12 +87,13 @@ namespace GeneralData.Model
             comando.Parameters.AddWithValue("@usuario_admin", usuario_admin);
             comando.Parameters.AddWithValue("@nombre_de_usuario", nombre_de_usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
-            
+            comando.Parameters.AddWithValue("@sucursal", sucursal);
+
 
             conexion.ExecuteNonQuery(comando);
         }
 
-        public void Update(int user_id, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia)
+        public void Update(int user_id, string nombre, string direccion, int usuario_admin, string nombre_de_usuario, string contrasenia, string sucursal)
         {
             Conexion conexion = new Conexion();
 
@@ -103,7 +106,7 @@ namespace GeneralData.Model
             comando.Parameters.AddWithValue("@usuario_admin", usuario_admin);
             comando.Parameters.AddWithValue("@nombre_de_usuario", nombre_de_usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
-            
+            comando.Parameters.AddWithValue("@sucursal", sucursal);
 
             conexion.ExecuteNonQuery(comando);
         } 
