@@ -23,7 +23,8 @@ public class Pedido
     public string direccion_envio { get; set; }
     public string urgencia { get; set; }
     public string tipo_pedido { get; set; }
-    
+    public string sucursal { get; set; }
+
 
 
 
@@ -39,7 +40,7 @@ public class Pedido
         this.direccion_envio = "";
         this.urgencia = "";
         this.tipo_pedido = "";
-       
+        this.sucursal = "";
         }
 
     public string AllPedidos()
@@ -75,7 +76,7 @@ public class Pedido
 
         public void New(string estado, int id_usuario, string nombre_cliente,
             int factura_electronica, string detalle_factura, string metodo_envio,
-            string direccion_envio, string urgencia, string tipo_pedido)
+            string direccion_envio, string urgencia, string tipo_pedido, string sucursal)
         {
             Conexion conexion = new Conexion();
 
@@ -91,13 +92,13 @@ public class Pedido
             comando.Parameters.AddWithValue("@direccion_envio", direccion_envio);
             comando.Parameters.AddWithValue("@urgencia", urgencia);
             comando.Parameters.AddWithValue("@tipo_pedido", tipo_pedido);
-            
+            comando.Parameters.AddWithValue("@sucursal", sucursal);
 
             conexion.ExecuteNonQuery(comando);
         }
 
 
-        public void Update(int id_pedido ,string estado, int id_usuario, string nombre_cliente,
+        public void Update(int id_pedido ,string estado, string nombre_cliente,
             int factura_electronica, string detalle_factura, string metodo_envio,
             string direccion_envio, string urgencia, string tipo_pedido)
         {
@@ -107,8 +108,7 @@ public class Pedido
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@id_pedido", id_pedido);
-            comando.Parameters.AddWithValue("@estado", estado);
-            comando.Parameters.AddWithValue("@id_usuario", id_usuario);
+            comando.Parameters.AddWithValue("@estado", estado);       
             comando.Parameters.AddWithValue("@nombre_cliente", nombre_cliente);
             comando.Parameters.AddWithValue("@factura_electronica", factura_electronica);
             comando.Parameters.AddWithValue("@detalle_factura", detalle_factura);
@@ -116,7 +116,7 @@ public class Pedido
             comando.Parameters.AddWithValue("@direccion_envio", direccion_envio);
             comando.Parameters.AddWithValue("@urgencia", urgencia);
             comando.Parameters.AddWithValue("@tipo_pedido", tipo_pedido);
-            
+          
 
             conexion.ExecuteNonQuery(comando);
         }
