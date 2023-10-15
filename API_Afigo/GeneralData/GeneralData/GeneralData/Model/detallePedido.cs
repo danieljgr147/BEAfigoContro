@@ -16,6 +16,8 @@ namespace GeneralData.Model {
         public int cant_producto { get; set; }
         public string descripcion { get; set; }
 
+        public string estado { get; set; }
+
         public detallePedido()
 		{
 
@@ -24,6 +26,7 @@ namespace GeneralData.Model {
             this.nombre_producto = "";
             this.cant_producto = 0;
             this.descripcion = "";
+            this.estado = "";
         }
 
         public string AllDetalles(int id_pedido)
@@ -42,7 +45,7 @@ namespace GeneralData.Model {
         } 
 
 
-        public void New(int id_pedido, string nombre_producto, int cant_producto, string descripcion)
+        public void New(int id_pedido, string nombre_producto, int cant_producto, string descripcion, string estado)
         {
             Conexion conexion = new Conexion();
 
@@ -53,14 +56,14 @@ namespace GeneralData.Model {
             comando.Parameters.AddWithValue("@nombre_producto", nombre_producto);
             comando.Parameters.AddWithValue("@cant_producto", cant_producto);
             comando.Parameters.AddWithValue("@descripcion", descripcion);
-            
+            comando.Parameters.AddWithValue("@estado", estado);
 
             conexion.ExecuteNonQuery(comando);
         }
 
 
 
-        public void Update(int id_detalle, int id_pedido, string nombre_producto, int cant_producto, string descripcion)
+        public void Update(int id_detalle, int id_pedido, string nombre_producto, int cant_producto, string descripcion, string estado)
         {
             Conexion conexion = new Conexion();
 
@@ -72,6 +75,7 @@ namespace GeneralData.Model {
             comando.Parameters.AddWithValue("@nombre_producto", nombre_producto);
             comando.Parameters.AddWithValue("@cant_producto", cant_producto);
             comando.Parameters.AddWithValue("@decripcion", descripcion);
+            comando.Parameters.AddWithValue("@estado", estado);
 
             conexion.ExecuteNonQuery(comando);
         }
