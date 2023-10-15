@@ -41,7 +41,8 @@ namespace GeneralData.Controllers
                     var tokenOptions = new JwtSecurityToken(
                         issuer: appSettings.issuer,
                         audience: appSettings.audience,
-                        claims: new List<Claim>(),  
+                        claims: new List<Claim>(),
+                        expires: DateTime.Now.AddHours(8766),
                         signingCredentials: signingCredentials
                     );
 
