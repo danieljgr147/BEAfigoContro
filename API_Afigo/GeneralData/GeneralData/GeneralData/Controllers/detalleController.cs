@@ -30,7 +30,7 @@ namespace GeneralData.Controllers
         {
             try
             {
-                detalle.New(detalle.id_pedido, detalle.nombre_producto, detalle.cant_producto, detalle.descripcion);
+                detalle.New(detalle.id_pedido, detalle.nombre_producto, detalle.cant_producto, detalle.descripcion, detalle.estado);
                 return Ok(new { Respuesta = "Se ha creado con exito el detalle del pedido.", detalle });
             }
             catch (Exception)
@@ -47,7 +47,7 @@ namespace GeneralData.Controllers
             try
             {
 
-                detalle.Update(detalle.id_detalle, detalle.id_pedido, detalle.nombre_producto, detalle.cant_producto, detalle.descripcion);
+                detalle.Update(detalle.id_detalle, detalle.id_pedido, detalle.nombre_producto, detalle.cant_producto, detalle.descripcion, detalle.estado);
                 return Ok(new { Respuesta = "Se ha creado con exito el pedido.", detalle });
 
             }

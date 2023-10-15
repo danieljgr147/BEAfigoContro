@@ -57,7 +57,7 @@ public class Pedido
         return JsonConvert.SerializeObject(dt);
     }
 
-        public string PedidoPorTipo(string tipo_pedido)
+        public string PedidoPorTipo(string tipo_pedido, string sucursal)
         {
 
             Conexion conexion = new Conexion();
@@ -66,6 +66,7 @@ public class Pedido
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "spPedidoPorTipo";
             cmd.Parameters.AddWithValue("@tipo_pedido", tipo_pedido);
+            cmd.Parameters.AddWithValue("@sucursal", sucursal);
 
             DataTable dt = conexion.ExecuteReaderDataTable(cmd);
 
