@@ -22,20 +22,20 @@ namespace GeneralData.Controllers
             return myPedido.AllPedidos();
         }
 
-        [HttpGet, Route("ByTypePedido")]
+        [HttpPost, Route("ByTypePedido")]
         [Authorize]
-        public string PedidoPorTipoPedido(string sucursal)
+        public string PedidoPorTipoPedido([FromBody] string sucursal, int tipo_usuario)
         {
             Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo("Pedido", sucursal);
+            return myPedido.PedidoPorTipo("Pedido", sucursal, tipo_usuario);
         }
 
-        [HttpGet, Route("ByTypeCotizacion")]
+        [HttpPost, Route("ByTypeCotizacion")]
         [Authorize]
-        public string PedidoPorTipoCotizacion(string sucursal)
+        public string PedidoPorTipoCotizacion([FromBody] string sucursal, int tipo_usuario)
         {
             Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo("Cotizacion", sucursal);
+            return myPedido.PedidoPorTipo("Cotizacion", sucursal, tipo_usuario);
         }
 
 
