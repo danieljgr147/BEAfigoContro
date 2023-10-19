@@ -24,18 +24,18 @@ namespace GeneralData.Controllers
 
         [HttpPost, Route("ByTypePedido")]
         [Authorize]
-        public string PedidoPorTipoPedido([FromBody] string sucursal, int tipo_usuario)
+        public string PedidoPorTipoPedido([FromBody] Model.usuario usuario)
         {
             Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo("Pedido", sucursal, tipo_usuario);
+            return myPedido.PedidoPorTipo("Pedido", usuario.sucursal, usuario.usuario_admin);
         }
 
         [HttpPost, Route("ByTypeCotizacion")]
         [Authorize]
-        public string PedidoPorTipoCotizacion([FromBody] string sucursal, int tipo_usuario)
+        public string PedidoPorTipoCotizacion([FromBody] Model.usuario usuario)
         {
             Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo("Cotizacion", sucursal, tipo_usuario);
+            return myPedido.PedidoPorTipo("Cotizacion", usuario.sucursal, usuario.usuario_admin);
         }
 
 
