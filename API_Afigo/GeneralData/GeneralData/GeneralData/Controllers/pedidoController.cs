@@ -54,7 +54,7 @@ namespace GeneralData.Controllers
             try
             { 
                Pedido myPedido = new Pedido();
-                pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido, pedido.sucursal);
+                pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido, pedido.sucursal,pedido.codigo);
                 string myIdPedido = myPedido.lastPedido(pedido.id_usuario).Replace("[{\"id_pedido\":", "").Replace("}]", "");
                 pedido.id_pedido = int.Parse(myIdPedido);
                 return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
@@ -74,7 +74,7 @@ namespace GeneralData.Controllers
             try
             {
 
-                pedido.Update(pedido.id_pedido, pedido.estado, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido);
+                pedido.Update(pedido.id_pedido, pedido.estado, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido,pedido.codigo);
                 return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });
 
             }
