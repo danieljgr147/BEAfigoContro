@@ -309,7 +309,8 @@ C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralDa
 C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.GeneralData.props
 C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.GeneralData.props
 C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralData.RazorTargetAssemblyInfo.cache
-C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralData.csproj.CopyComplete
 C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralData.dll
 C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralData.pdb
 C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralData.genruntimeconfig.cache
+C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralData.sourcelink.json
+C:\Users\minor\OneDrive\Escritorio\BEAfigoContro\API_Afigo\GeneralData\GeneralData\GeneralData\obj\Debug\netcoreapp3.1\GeneralD.F25D0954.Up2Date

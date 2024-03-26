@@ -24,18 +24,23 @@ namespace GeneralData.Controllers
 
         [HttpPost, Route("ByTypePedido")]
         [Authorize]
-        public string PedidoPorTipoPedido([FromBody] string sucursal, int tipo_usuario)
+        public string PedidoPorTipoPedido([FromBody] Pedido myPedido)
         {
-            Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo("Pedido", sucursal, tipo_usuario);
+            return myPedido.PedidoPorTipo("Pedido", myPedido.sucursal, myPedido.usuario_admin);
         }
 
         [HttpPost, Route("ByTypeCotizacion")]
         [Authorize]
-        public string PedidoPorTipoCotizacion([FromBody] string sucursal, int tipo_usuario)
+        public string PedidoPorTipoCotizacion([FromBody] Pedido myPedido)
         {
-            Pedido myPedido = new Pedido();
-            return myPedido.PedidoPorTipo("Cotizacion", sucursal, tipo_usuario);
+            return myPedido.PedidoPorTipo("Cotizacion", myPedido.sucursal, myPedido.usuario_admin);
+        }
+
+        [HttpPost, Route("ByTypeProveedor")]
+        [Authorize]
+        public string PedidoPorTipoProveedor([FromBody] Pedido myPedido)
+        {
+            return myPedido.PedidoPorTipo("Proveedor", myPedido.sucursal, myPedido.usuario_admin);
         }
 
 
@@ -57,7 +62,7 @@ namespace GeneralData.Controllers
                 pedido.New(pedido.estado, pedido.id_usuario, pedido.nombre_cliente, pedido.factura_electronica, pedido.detalle_factura, pedido.metodo_envio, pedido.direccion_envio, pedido.urgencia, pedido.tipo_pedido, pedido.sucursal,pedido.codigo);
                 string myIdPedido = myPedido.lastPedido(pedido.id_usuario).Replace("[{\"id_pedido\":", "").Replace("}]", "");
                 pedido.id_pedido = int.Parse(myIdPedido);
-                return Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
+                return   Ok(new { Respuesta = "Se ha creado con exito el pedido.", pedido });                   
             }
             catch (Exception)
             {

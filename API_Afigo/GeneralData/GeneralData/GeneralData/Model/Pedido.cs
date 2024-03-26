@@ -26,6 +26,9 @@ namespace GeneralData.Model
         public string sucursal { get; set; }
         public string codigo { get; set; }
 
+        public int usuario_admin { get; set; }
+        
+
 
 
 

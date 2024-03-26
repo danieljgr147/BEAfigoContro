@@ -35,6 +35,7 @@ namespace GeneralData
             string audience = this.Configuration.GetSection("AuthToken")["audience"];
             string key = this.Configuration.GetSection("AuthToken")["key"];
 
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: _MyCors, builder =>
