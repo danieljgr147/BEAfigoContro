@@ -15,7 +15,7 @@ namespace GeneralData.Model {
         public string nombre_producto { get; set; }
         public int cant_producto { get; set; }
         public string descripcion { get; set; }
-
+        public string codigo { get; set; }
         public string estado { get; set; }
 
         public detallePedido()
@@ -27,6 +27,7 @@ namespace GeneralData.Model {
             this.cant_producto = 0;
             this.descripcion = "";
             this.estado = "";
+            this.codigo = "";
         }
 
         public string AllDetalles(int id_pedido)
@@ -45,7 +46,7 @@ namespace GeneralData.Model {
         } 
 
 
-        public void New(int id_pedido, string nombre_producto, int cant_producto, string descripcion, string estado)
+        public void New(int id_pedido, string nombre_producto, int cant_producto, string descripcion, string estado,string codigo)
         {
             Conexion conexion = new Conexion();
 
@@ -57,13 +58,13 @@ namespace GeneralData.Model {
             comando.Parameters.AddWithValue("@cant_producto", cant_producto);
             comando.Parameters.AddWithValue("@descripcion", descripcion);
             comando.Parameters.AddWithValue("@estado", estado);
-
+            comando.Parameters.AddWithValue("@codigo", codigo);
             conexion.ExecuteNonQuery(comando);
         }
 
 
 
-        public void Update(int id_detalle, int id_pedido, string nombre_producto, int cant_producto, string descripcion, string estado)
+        public void Update(int id_detalle, int id_pedido, string nombre_producto, int cant_producto, string descripcion, string estado,string codigo)
         {
             Conexion conexion = new Conexion();
 
@@ -76,7 +77,7 @@ namespace GeneralData.Model {
             comando.Parameters.AddWithValue("@cant_producto", cant_producto);
             comando.Parameters.AddWithValue("@decripcion", descripcion);
             comando.Parameters.AddWithValue("@estado", estado);
-
+            comando.Parameters.AddWithValue("@codigo", codigo);
             conexion.ExecuteNonQuery(comando);
         }
 
